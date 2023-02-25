@@ -8,6 +8,10 @@ import { getTasks } from '../../../services/getTasks'
 export const Card = () => {
   const { users, userActive, setUserActive } = useContext(UsersContext)
   const { tasks, setTasks, setFilter } = useContext(TasksContext)
+  const url =
+    import.meta.env.VITE_URL_APIKEY === undefined
+      ? process.env.VITE_URL_APIKEY
+      : import.meta.env.VITE_URL_APIKEY
 
   return (
     <>
@@ -23,7 +27,7 @@ export const Card = () => {
                   : 'bg-neutral-200'
               } flex flex-row items-center gap-2 p-2 rounded-md cursor-pointer`}
             >
-              <img src={user.path} className="w-12 rounded-md" />
+              <img src={`${url}${user.path}`} className="w-12 rounded-md" />
               <LimitedText limit={10}>{user.name}</LimitedText>
             </li>
           ))}
