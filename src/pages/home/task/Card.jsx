@@ -101,8 +101,10 @@ export const Card = () => {
               )}
               {task.status === 1 && (
                 <>
-                  <a className="rounded-md p-2 text-white cursor-pointer bg-neutral-500">
-                    <FaCheck />
+                  <a
+                    onClick={(e) => handleClickUpdate(e, task, 0)} 
+                    className="rounded-md p-2 text-white cursor-pointer bg-neutral-800">
+                    <FaUndo />
                   </a>
                   <a
                     onClick={(e) => handleClickUpdate(e, task, 2)}
